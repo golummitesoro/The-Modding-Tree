@@ -1,6 +1,6 @@
-addLayer("p", {
+addLayer("t", {
     name: "train", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "T", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
@@ -16,7 +16,7 @@ addLayer("p", {
     gainMult() // Calculate the multiplier for main currency from bonuses
     { 
         mult = new Decimal(1)
-        if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
+        if (hasUpgrade('t', 13)) mult = mult.times(upgradeEffect('p', 13))
         return mult
     },
     gainExp() 
@@ -26,7 +26,7 @@ addLayer("p", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: 
     [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "t", description: "P: Reset for training", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
 
