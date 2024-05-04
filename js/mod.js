@@ -1,9 +1,5 @@
 let modInfo = {
-<<<<<<< HEAD
 	name: "The big Tree",
-=======
-	name: "The ??? Tree",
->>>>>>> parent of d5b4fe1 (Update mod.js)
 	id: "mymod",
 	author: "nobody",
 	pointsName: "points",
