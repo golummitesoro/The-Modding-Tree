@@ -1,7 +1,11 @@
 let modInfo = {
+<<<<<<< HEAD
 	name: "The big Tree",
+=======
+	name: "The ??? Tree",
+>>>>>>> parent of d5b4fe1 (Update mod.js)
 	id: "mymod",
-	author: "golummitesoro",
+	author: "nobody",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
@@ -14,7 +18,7 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "0.0",
-	name: "qa",
+	name: "Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
