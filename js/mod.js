@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The big Tree",
 	id: "golummodtesoro",
 	author: "nobody",
-	pointsName: "points",
+	pointsName: "energy",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
