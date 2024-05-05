@@ -26,12 +26,12 @@ addLayer("f", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: 
     [
-        {key: "t", description: "T: Reset for training", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "f", description: "F: Reset for focus points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    branches:["m"],
 
-
-    ,upgrades: 
+    upgrades: 
     {
         11: 
         {
