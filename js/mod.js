@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The RPG Tree",
 	id: "golummodtesoro",
 	author: "nobody",
-	pointsName: "energy",
+	pointsName: "magical energy",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
