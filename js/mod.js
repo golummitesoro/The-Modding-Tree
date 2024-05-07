@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The RPG Tree",
 	id: "golummodtesoro",
 	author: "nobody",
-	pointsName: "magical energy",
+	pointsName: "focus",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -41,9 +41,10 @@ function canGenPoints(){
 function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
-	let gain = new Decimal(1)
-	if (hasUpgrade('f', 11)) gain = gain.times(2)
-	if (hasUpgrade('f', 12)) gain = gain.times(upgradeEffect('f', 12))
+	let gain = new Decimal(0)
+	
+	if (hasUpgrade('me', 11)) gain = gain.add(1)
+	if (hasUpgrade('me', 12)) gain = gain.times(upgradeEffect('me', 12))
 	return gain
 }
 
