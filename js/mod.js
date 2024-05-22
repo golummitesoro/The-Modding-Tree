@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.001",
+	num: "0.002",
 	name: "Literally nothing",
 }
 
@@ -39,11 +39,12 @@ function canGenPoints(){
 
 // Calculate points/sec!
 function getPointGen() {
+	let gain = new Decimal(0)
 	if(!canGenPoints())
 		return new Decimal(0)
-	let gain = new Decimal(1)
-	if (hasUpgrade('f', 11)) gain = gain.times(2)
+	if (hasUpgrade('f', 11)) gain = gain.add(1)
 	if (hasUpgrade('f', 12)) gain = gain.times(upgradeEffect('f', 12))
+	if (hasUpgrade('m', 11)) gain = gain.times(upgradeEffect('m', 11))
 	return gain
 }
 
