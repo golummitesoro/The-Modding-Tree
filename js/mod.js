@@ -3,7 +3,7 @@ let modInfo = {
 	id: "golummodtesoro",
 	author: "nobody",
 	pointsName: "focus",
-	modFiles: ["layers.js", "tree.js"],
+	modFiles: ["focus.js", "tree.js","mana.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.002",
+	num: "0.003",
 	name: "Literally nothing",
 }
 
