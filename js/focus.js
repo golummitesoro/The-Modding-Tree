@@ -17,7 +17,6 @@ addLayer("f", {
     { 
         mult = new Decimal(1)
         if (hasUpgrade('f', 13)) mult = mult.times(upgradeEffect('f', 13))
-        if (hasUpgrade('m', 12)) mult = mult.times(upgradeEffect('m', 12))
         return mult
     },
     gainExp() 
@@ -27,7 +26,7 @@ addLayer("f", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: 
     [
-        {key: "M", description: "M: Reset for magical energy", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "f", description: "M: Reset for magical energy", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     branches:["m"],
@@ -35,31 +34,40 @@ addLayer("f", {
     {
         11: 
         {
-            title: "Start focusing",
-            description: "You can feel some strange energy around you",
+            title: "Focus Upgrade 1",
+            description: "Add 1 to magical energy generation",
             cost: new Decimal(1),
         },
         12: 
         {
-            title: "Close your eyes",
-            description: "You realize your focus influences how much energy you feel",
-            cost: new Decimal(2),
+            title: "Focus Upgrade 2",
+            description: "Focus boosts magical energy",
+            cost: new Decimal(3),
             effect() 
             {
-                return player[this.layer].points.add(1).pow(0.5).add(1).times(2)
+                if(hasUpgrade('f', 21))
+                    return player[this.layer].points.add(1).pow(0.575).add(1)
+                else
+                    return player[this.layer].points.add(1).pow(0.50).add(1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         13: 
         {
-            title: "Calm your mind",
-            description: "This new energy clears your mind, helping you focus",
-            cost: new Decimal(2),
+            title: "Focus Upgrade 3",
+            description: "Magical energy boosts focus",
+            cost: new Decimal(10),
             effect() 
             {
                 return player.points.add(1).pow(0.15)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        21:
+        {
+            title: "Focus Upgrade 4",
+            description: "Boosts focus upgrade 12",
+            cost: new Decimal(150),
         },
     },
 })

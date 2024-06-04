@@ -12,7 +12,7 @@ addLayer("m", {
     baseResource: "points",                 // The name of the resource your prestige gain is based on.
     baseAmount() { return player.points },  // A function to return the current amount of baseResource.
 
-    requires: new Decimal(50),              // The amount of the base needed to  gain 1 of the prestige currency.
+    requires: new Decimal(100),              // The amount of the base needed to  gain 1 of the prestige currency.
                                             // Also the amount required to unlock the layer.
 
     type: "normal",                         // Determines the formula used for calculating prestige currency.
@@ -43,8 +43,8 @@ addLayer("m", {
     {
         11: 
         {
-            title: "Magical energy attraction",
-            description: "You use your mana to attract more magical energy",
+            title: "Mana Upgrade 1",
+            description: "Mana boosts magical energy",
             cost: new Decimal(1),
             unlocked()
             {
@@ -52,32 +52,15 @@ addLayer("m", {
             },
             effect() 
             {
-                return player[this.layer].points.add(1).pow(0.25)
+                return player[this.layer].points.add(10).log(75).times(3)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         },
         12: 
         {
-            title: "Remove distractions",
-            description: "You can focus better thanks to mana",
-            cost: new Decimal(2),
-            unlocked()
-            {
-                return hasMilestone('m',0)
-            },
-            effect() 
-            {
-                return player[this.layer].points.add(1).pow(0.4)
-            },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-
-            
-        },
-        13: 
-        {
-            title: "Mana understanding I",
-            description: "You create mana faster with your newfound knowledge",
-            cost: new Decimal(10),
+            title: "Mana Upgrade 2",
+            description: "Mana boosts mana itself",
+            cost: new Decimal(5),
             unlocked()
             {
                 return hasMilestone('m',0)
@@ -87,6 +70,16 @@ addLayer("m", {
                 return player[this.layer].points.add(1).pow(0.25)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        13: 
+        {
+            title: "Mana Upgrade 3",
+            description: "Unlocks more focus upgrades",
+            cost: new Decimal(25),
+            unlocked()
+            {
+                return hasMilestone('m',0)
+            },
         },
     },
 })
